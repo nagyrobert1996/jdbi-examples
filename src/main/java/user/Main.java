@@ -27,10 +27,11 @@ public class Main {
                     .dob(LocalDate.parse("1920-11-11"))
                     .build();
             dao.insert(user);
-            dao.findById(user.getId());
-            dao.findByUsername(user.getUsername());
-            dao.list();
+            dao.findById(user.getId()).stream().forEach(System.out::println);
+            dao.findByUsername(user.getUsername()).stream().forEach(System.out::println);
+            dao.list().stream().forEach(System.out::println);
             dao.delete(user);
+            dao.list().stream().forEach(System.out::println);
         }
 
     }
